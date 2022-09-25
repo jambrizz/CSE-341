@@ -4,4 +4,7 @@ const index = (req, res) => {
     res.send("Yasna Ambriz");
 }
 
-module.exports = { index };
+module.exports = { 
+    index,
+    getDb,
+};
