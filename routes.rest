@@ -1,0 +1,24 @@
+// example url:
+//secure channel request
+//https://example.com/api/collectionname
+// /api/ is common practice for RESTful APIs
+
+//non secure channel request
+//http://example.com/api/collectionname
+// notice the lack of the s in https
+
+//Localhost
+
+###
+GET http://localhost:3000/contacts
+
+###
+GET http://localhost:3000/contacts/63328d4d94e93301d3031ada
+
+###
+GET GET http://localhost:3000/contacts/6332948f94e93301d3031ade
+
+###
+GET http://localhost:3000/contacts/633295c794e93301d3031adf
+
+//production
