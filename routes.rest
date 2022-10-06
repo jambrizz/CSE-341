@@ -22,3 +22,15 @@ GET http://localhost:3000/contacts/6332948f94e93301d3031ade
 GET http://localhost:3000/contacts/633295c794e93301d3031adf
 
 //production
+
+###
+GET https://week02personalassignment.onrender.com/contacts 
+
+###
+GET https://week02personalassignment.onrender.com/contacts/63328d4d94e93301d3031ada
+
+### 
+GET https://week02personalassignment.onrender.com/contacts/6332948f94e93301d3031ade
+
+###
+GET https://week02personalassignment.onrender.com/contacts/633295c794e93301d3031adf
