@@ -10,10 +10,10 @@ const ObjectId = require('mongodb').ObjectId;
 const getAllContacts = async (req, res, next) => {
     //result varaible will retrive all data from the contacts collection by using the find() method
     //.getDb() checks if database is initialized
-    //.db is the folder name
-    //.collection is passing the collection name of contacts
+    //.db is the database name in MongoDB which is "contacts"
+    //.collection is passing the collection name of "contacts"
     //.find() is the method to retrieve all data
-    const result = await mongodb.getDb().db().collection('contacts').find();
+    const result = await mongodb.getDb().db('contacts').collection('contacts').find();
     //result will be converted to an array
     //.then() will return the array
     result.toArray().then((lists) => {
@@ -28,7 +28,7 @@ const getIndividualContact = async (req, res, next) => {
     //variable to retrieve the id from the request
     const id = new ObjectId(req.params.id);
     //variable does the same as getAllContacts but only retrieves one document by passing the id variable through the find() method
-    const result = await mongodb.getDb().db().collection('contacts').find({_id: id});
+    const result = await mongodb.getDb().db('contacts').collection('contacts').find({_id: id});
     //result will be converted to an array
     result.toArray().then((lists) => { 
         res.setHeader('Content-Type', 'application/json');

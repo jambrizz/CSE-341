@@ -30,18 +30,6 @@ mongodb.initDb((err, mongodb) => {
         console.log(`Connected to DB and listening on port ${port}`);
     }
 });
-
-module.exports = app;
-
 /*
-//directs to the index.js file in the routes folder
-const routes = require('./routes/index');
-
-//directs express to use the routes
-app.use(routes);
-//app.use('/', require('./routes'));
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-});
+module.exports = app;
 */
