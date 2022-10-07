@@ -1,4 +1,4 @@
-//This file is to request data from MongoDB
+//This file is to request/create/update/delete data from MongoDB
 
 //This variable is to require mongodb
 const mongodb = require('../db/connect');
@@ -35,8 +35,59 @@ const getIndividualContact = async (req, res, next) => {
         res.status(200).json(lists[0]);
     });
 };
+//variabble to add a new document to the MongoDB
+const addContact = async (req, res) => {
+    const createContact = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    };
+    const response = await mongodb.getDb().db('contacts').collection('contacts').insertOne(createContact);
+    if (response.acknowledged) {
+        res.status(201);
+        res.json({ _id: response.insertedId });
+    } else {
+        res.status(500).json(response.error || 'There was an error creating the new contact');
+    }
+};
+
+//variable to update a document in MongoDB
+const updateContact = async (req, res) => {
+    const id = new ObjectID(req.params.id);
+    const contact = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    };
+    const response = await mongodb.getDb().db('contacts').collection('contacts').replaceOne({ _id: id}, contact);
+    console.log(response);
+    if (response.modifiedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'There was an error updating the contact');
+    }
+};
+
+//variable to delete a document in MongoDB
+const deleteContact = async (req, res) => {
+    const id = new ObjectId(req.params.id);
+    const response = await mongodb.getDb().db('contacts').collection('contacts').remove({ _id: id }, true);
+    console.log(response);
+    if (response.deletedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'There was an error deleting the contact');
+    }
+};
 
 module.exports = { 
     getAllContacts, 
     getIndividualContact,
+    addContact,
+    updateContact,
+    deleteContact
 };

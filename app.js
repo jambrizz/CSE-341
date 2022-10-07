@@ -4,6 +4,9 @@ const express = require('express');
 //parses the body of the request
 const bodyParser = require('body-parser');
 
+//creates a variable to require CORS
+const cors = require('cors');
+
 //creates a requirement to use connection.js file in database folder.
 //This file is going to be the default way to connect multiple files to the database
 const mongodb = require('./db/connect');
