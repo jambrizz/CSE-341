@@ -61,3 +61,30 @@ GET https://week02personalassignment.onrender.com/contacts/6332948f94e93301d3031
 
 ###
 GET https://week02personalassignment.onrender.com/contacts/633295c794e93301d3031adf
+
+### Create a new contact
+POST https://week03personalassignment.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Lando",
+    "lastName":"Calrissian",
+    "email":"lando@calrissian.com",
+    "favoriteColor":"blue",
+    "birthday":"1937-04-06"
+}
+
+### Update a contact
+PUT https://week03personalassignment.onrender.com/contacts/633fabf43578a74c11071a8f HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Chewbacca",
+    "lastName":"Wookie",
+    "email":"therealchewie@thewookie.com",
+    "favoriteColor":"grey",
+    "birthday":"1937-04-06"
+}
+
+### Delete a contact
+DELETE https://week03personalassignment.onrender.com/contacts/633fae1b3578a74c11071a90 HTTP/1.1

@@ -55,7 +55,7 @@ const addContact = async (req, res) => {
 
 //variable to update a document in MongoDB
 const updateContact = async (req, res) => {
-    const id = new ObjectID(req.params.id);
+    const id = new ObjectId(req.params.id);
     const contact = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
