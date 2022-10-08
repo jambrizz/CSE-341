@@ -13,6 +13,7 @@ const getAllContacts = async (req, res, next) => {
     //.db is the database name in MongoDB which is "contacts"
     //.collection is passing the collection name of "contacts"
     //.find() is the method to retrieve all data
+    // #swagger.description = 'Get all contacts from the database'
     const result = await mongodb.getDb().db('contacts').collection('contacts').find();
     //result will be converted to an array
     //.then() will return the array
@@ -26,6 +27,7 @@ const getAllContacts = async (req, res, next) => {
 //variable is to retrieve a single document from MongoDB
 const getIndividualContact = async (req, res, next) => {
     //variable to retrieve the id from the request
+    // #swagger.description = 'Get a single contact from the database'
     const id = new ObjectId(req.params.id);
     //variable does the same as getAllContacts but only retrieves one document by passing the id variable through the find() method
     const result = await mongodb.getDb().db('contacts').collection('contacts').find({_id: id});
@@ -37,6 +39,7 @@ const getIndividualContact = async (req, res, next) => {
 };
 //variabble to add a new document to the MongoDB
 const addContact = async (req, res) => {
+    // #swagger.description = 'Add a new contact to the database'
     const createContact = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -55,6 +58,7 @@ const addContact = async (req, res) => {
 
 //variable to update a document in MongoDB
 const updateContact = async (req, res) => {
+    // #swagger.description = 'Update a contact in the database'
     const id = new ObjectId(req.params.id);
     const contact = {
         firstName: req.body.firstName,
@@ -74,6 +78,7 @@ const updateContact = async (req, res) => {
 
 //variable to delete a document in MongoDB
 const deleteContact = async (req, res) => {
+    // #swagger.description = 'Delete a contact from the database'
     const id = new ObjectId(req.params.id);
     const response = await mongodb.getDb().db('contacts').collection('contacts').remove({ _id: id }, true);
     console.log(response);

@@ -5,6 +5,9 @@ const router = express.Router();
 
 router.use('/contacts', require('./contacts'));
 
+//this is the route for the swagger documentation
+router.use('/api-docs', require('./docs'));
+
 module.exports = router;
 
 /*
