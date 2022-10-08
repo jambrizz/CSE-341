@@ -48,6 +48,9 @@ content-type: application/json
 ### Delete a contact
 DELETE http://localhost:3000/contacts/633fae1b3578a74c11071a90 HTTP/1.1
 
+### api-docs
+GET http://localhost:3000/api-docs
+
 //production
 
 ###
@@ -88,3 +91,6 @@ content-type: application/json
 
 ### Delete a contact
 DELETE https://week03personalassignment.onrender.com/contacts/633fae1b3578a74c11071a90 HTTP/1.1
+
+### api-docs
+GET https://week04personalassignment.onrender.com/api-docs
